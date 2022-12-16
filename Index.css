@@ -17,13 +17,17 @@
     right: 0;
 
 }
+.main-container{
+    display: flex;
+}
 
 .main-nav {
     background-color: whitesmoke;
-    box-shadow: 0 0 5px 2px;
+    box-shadow: 0 0 5px 1px;
     width: 100%;
+   
     height: 55px;
-    position: fixed;
+    position:   absolute;
 }
 
 /* .btn
@@ -38,30 +42,45 @@
 
 }
 
-.webheader {
-    padding-top: 10px;
-}
+ 
 
 .inner-nav {
     display: flex;
+    position: absolute;
     justify-content: space-between;
+     
+    text-align: center;
+    width: 100%;
+    height: 100%;
 
 }
 
 .btn {
-    margin-right: 20px;
+    /* margin-right: 20px; */
+}
+
+.second{
+    display: flex;
+    position: relative;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
 }
 
 .topinput {
-    margin-top: 15px;
-    margin-right: 15px;
+    position: relative;
+    /* margin-top: 15px;
+    margin-right: 15px; */
 
 }
 
 .first {
     margin-left: 5rem;
-    font-size: medium;
-    justify-self: start;
+    margin-top:10px ;
+    /* font-size: medium; */
+
+    justify-self:  center;
 
 }
 
@@ -92,7 +111,13 @@
     position: fixed;
     background-color: rgb(170, 168, 168);
 }
+/* <!-- ================== dropdown Navbar =================== --> */
 
+.ancr:hover{
+    /* background-color: ; */
+    background-color: rgb(209, 157, 80);
+    color: white;
+}
 /* <!-- ================== Left Side Navbar =================== --> */
 
 .section-container {
@@ -100,7 +125,9 @@
     grid-template-columns: 280px auto;
     /* grid-template-columns: 1fr 2fr; */
     padding-bottom: 10px;
-    padding-top: 56px;
+    /* padding-top: 56px; */
+    padding-top: 20px;
+    position: relative;
 }
 
 .fa-shopping-cart {
@@ -109,22 +136,23 @@
 
 .change {
     grid-template-columns: 0px auto;
-    margin-left: 35px;
-    padding-right: 50px;
+  
    
 }
 
 
 
-
+/* .leftsection{
+    height: 500px;
+} */
 
 .leftNavbar {
 
     display: flex;
-    height: 100%;
-    position: fixed;
+    height: 500px;
+    position:  fixed;
     width: 280px;
-    padding-top: 70px;
+    padding-top: 50px;
     padding-bottom: 105px;
     background-color: rgb(209, 157, 80);
     color: white;
@@ -136,6 +164,7 @@
 .sidebar {
     position: absolute;
     top: 0;
+    font-size: medium;
     margin-right: 10px;
     margin-top: 10px;
     text-align: end;
@@ -188,9 +217,9 @@
 .openSidebar {
     position: fixed;
     margin-left: 10px;
-    margin-top: 75px;
+    margin-top: 10px;
     text-align: start;
-    
+    width: 30px;
     cursor: pointer;
 }
 
@@ -286,11 +315,8 @@
 
 
 .rightsection {
-    /* border: 1px solid black;
-    padding-left: 15px;
-    padding-right: 15px; */
-
-    margin-top: 10px;
+   
+    position: relative;
     height: 82vh;
     overflow: auto;
 
@@ -300,6 +326,7 @@
 
 
     padding: 15px;
+    padding-top: 0px;
 }
 
 /* <!-- ================== Left  Section =================== --> */
@@ -335,14 +362,67 @@
 .dropdown{
     display: none;
 }
+.inputBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+ 
+ 
+@media (min-width:750px) {
+    .inputBox {
+        display: none;
+    }
+    .middilecardlink{
+        display: none;
+    }
+     
+    
+}
 
 @media (max-width:750px) {
-    .topDropdown {
-        grid-template-columns: 0px auto;
-        /* margin-left: 35px; */
-        padding-right: 0px;
+    .dropdown{
+        height:20px ;
+    }
+    .rightsection{
+        position: relative;
+        top: 40px;
+    }
+    .second{
+        display: none;
+    }
+    .middilecardlink{
+        display: flex;
+    }
+    .leftsection{
+        display: none;
        
     }
+    
+    .main-container {
+        display: flex;
+        position: absolute;
+        justify-content: space-between;
+    
+    }
+    #container{
+        display: flex;
+        padding-top: 0px;
+    }
+
+    .topDropdown {
+        grid-template-columns: 0px auto;
+        
+         
+        position: fixed;
+        
+        /* height: 20px; */
+       
+    }
+    
       
     
     .openSidebar,.leftNavbar{
@@ -362,18 +442,21 @@
       }
       
       .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
+        background-color: #b96a29;
       }
       
       .dropdown {
         position: relative;
         display: inline-block;
       }
-      
+       
       .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f1f1f1;
+        /* background-color: #f1f1f1; */
+        background-color: rgb(209, 157, 80);
+      
+         
         min-width: 120px;
         overflow: auto;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -387,7 +470,7 @@
         display: block;
       }
       
-      .dropdown a:hover {background-color: #ddd;}
+      .dropdown-content a:hover {color: #1200b3;   background-color: white;}
       
       .show {display: block;}
 } 
