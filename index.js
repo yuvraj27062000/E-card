@@ -338,11 +338,9 @@ const CardData = () => {
 
     let showcard = document.createElement('div')
     showcard.className = 'showcard'
-    showcard.innerHTML = `<div  id="mySidenav" class="sidenav" ><a onclick = 'MyCardData(${value.id},this)' class='addcard  ' id="about">Add to card </a></div>`
+    showcard.innerHTML = `<div  id="mySidenav" class="sidenav" ><a onclick = 'MyCardData(${value.id},this)' class='addcard' id="about">Add to card </a></div>`
     let imagedata = document.createElement('div')
     imagedata.className = 'imagedata'
-
-
     let image = document.createElement('img')
     image.className = 'cardImage'
     let titledata = document.createElement('div')
@@ -389,7 +387,7 @@ const LocalStorageData = (value, idvalue, refral) => {
     refral.classList.add('greencard');
      
     localStorage.setItem('MyCardData', JSON.stringify(userList));
-    UpdateAmountBox()
+    UpdateAmountBox(0,0)
     showMyCardItems(value)
     notifydata()
     
@@ -410,7 +408,7 @@ const LocalStorageData = (value, idvalue, refral) => {
 
       refral.classList.add('greencard');
       localStorage.setItem('MyCardData', JSON.stringify(StoredData))
-      UpdateAmountBox()
+      UpdateAmountBox(0,0)
       showMyCardItems(value)
       notifydata()
       
@@ -452,6 +450,7 @@ notifydata()
 // ================ Add to card box =============================
 
 const showMyCardItems = (value)=>{
+   
   let CardContainer = document.getElementById('shopingcardData')
   let imagedata = document.createElement('div')
   imagedata.className = 'imagedata1'
@@ -476,24 +475,20 @@ const showMyCardItems = (value)=>{
 
   let buttondiv = document.createElement('div')
   buttondiv.className = 'buttondiv'
+  
+  buttondiv.innerHTML = `<button onclick="increamentitem(${value.id},${value.price},this)" class='button1'>+</button><h4 id="itemQuantity${value.id}" >1</h4><button onclick="decreamentItem(${value.id},${value.price},this)" class='button1'>-</button> <button onclick="removeItem(${value.id},${value.price},this)"  class='removebutton'>❌</button>`
 
-
-  let button1 = document.createElement('button')
-  button1.className = 'button1'
-  button1.onclick = increamentitem(this);
-
-  let button2 = document.createElement('button')
-  button2.className = 'button2'
-  button2.onclick = decreamentitem(this);
+   
 
   let grandItem = document.createElement('div')
   grandItem.className = 'grandItem1'
+  grandItem.id = `grandItem${value.id}`
 
   image.src = value.images[1]
   imagedata.appendChild(image)
 
-  button1.innerHTML = '+'
-  button2.innerHTML = '-'
+  // button1.innerHTML = '+'
+  // button2.innerHTML = '-'
 
   titledata.innerHTML = `<h3>${value.title}</h3>`
 
@@ -502,7 +497,7 @@ const showMyCardItems = (value)=>{
 
 
   titleprice.append(titledata, pricedata)
-  buttondiv.append(button1, button2)
+  // buttondiv.append(button1, button2)
   seconddiv.append(titleprice, buttondiv)
 
   grandItem.append(imagedata, seconddiv)
@@ -527,32 +522,59 @@ function myItemCard() {
 
 myItemCard()
 
-function increamentitem(val) {
-  // console.log(val);
-  // console.log('data');
+function increamentitem(id,price,refer) {
+
+  console.log('increament click', id,refer);
+  let amount =  document.getElementById(`itemQuantity${id}`).innerHTML
+  document.getElementById(`itemQuantity${id}`).innerText =( Number(amount)+1)
+  console.log(amount);
+  UpdateAmountBox(price,1)    
+  
 
 }
-function decreamentitem(val) {
-  // console.log(val);
-  // console.log('data');
+function decreamentItem(id,price,refer) {
+  
+  let amount =  document.getElementById(`itemQuantity${id}`).innerHTML
+  console.log(amount);
+
+  if(Number(amount)===0){
+    RemoveItemFromLocalStorage(id)
+
+  }
+  else{
+    console.log('decreament click',id,refer);
+    let amount =  document.getElementById(`itemQuantity${id}`).innerHTML
+    console.log(amount);
+    document.getElementById(`itemQuantity${id}`).innerText = (Number(amount)-1)
+    UpdateAmountBox(price,0)
+   
+  }
+
+}
+
+function removeItem(id,prive,refer){
+  console.log('remove click',id,refer);
+  RemoveItemFromLocalStorage(id)
 
 }
 
 function myAmountBox(){
   
   // let discountprice =0 
-  const [totalprice,totalitem, discountpersent] = calculatePriceAmount();
+  // const [totalprice,totalitem, discountpersent] = calculatePriceAmount();
+  let [totalAmount,totalNoOFitems, discountpersent] =  PriceStoredOnLocalStorage(0,0)
+
   let CardContainer = document.getElementById('shopingcardData')
   let Amountdiv = document.createElement('div')
   Amountdiv.className = 'amountdiv'
 
   let items = document.createElement('div')
   items.className = 'items'
-  items.innerHTML = `<h3>Items</h3><h3>${totalitem }₹</h3>`
+  items.innerHTML = `<h3>Items</h3><h3>${totalNoOFitems }₹</h3>`
 
   let discount = document.createElement('div')
   discount.className = 'discount'
-   discountprice = (totalprice - (totalprice / discountpersent))
+   discountprice = (totalAmount - (totalAmount / discountpersent))
   discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
 
   let total = document.createElement('div')
@@ -565,31 +587,91 @@ function myAmountBox(){
 myAmountBox()
 
 
-function UpdateAmountBox(){
+function UpdateAmountBox(price,item){
 
+  // let [totalAmount,totalNoOFitems, discountpersent] = calculatePriceAmount()
 
+  let [totalAmount,totalNoOFitems, discountpersent] =  PriceStoredOnLocalStorage(price,item)
   let items = document.getElementsByClassName('items')[0]
   let discount = document.getElementsByClassName('discount')[0]
   let total = document.getElementsByClassName('total')[0]
-  let [totalAmount,totalNoOFitems, discountpersent] = calculatePriceAmount()
-  let discountprice = (totalAmount - (totalAmount / discountpersent))
+   
+  let discountprice = (totalAmount- (totalAmount / discountpersent))
 
   items.innerHTML = `<h3>Items</h3><h3>${totalNoOFitems}₹</h3>`
   discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
   total.innerHTML = `<h3>Total</h3><h3>${discountprice}₹</h3>`
 }
 
-function calculatePriceAmount(){
+
+
+function PriceStoredOnLocalStorage(price,item){
   const StoredData = JSON.parse(localStorage.getItem('MyCardData')) 
   if(StoredData){
+    let myprice = StoredData.reduce((acc,curr)=> acc += curr.price,0)
+    let items = StoredData.length
+   
+    const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount')) 
+    if(!StoredPriceData){
+      let totalprice = myprice+price
+       
+      const userPriceAmount = [{'pricedata':totalprice, 'items':items}]
+     
+      localStorage.setItem('MyPriceAmount',JSON.stringify(userPriceAmount))
+      console.log("not present",totalprice,items,10);
+      return [totalprice,items,10]
+    }
+    else{
+      
+      let newprice = StoredPriceData[0].pricedata
+      let newitems = StoredPriceData[0].items
+      newprice = newprice +price
+      newitems = newitems + item
+      // console.log("check first",newprice);
+      let mypriceamount =[{'pricedata':newprice, 'items':newitems}]
+      localStorage.setItem('MyPriceAmount',JSON.stringify(mypriceamount))
+      console.log("present",newprice,newitems,10);
+      return [newprice,newitems,10]
+    }
     
-    let priceAmount  = StoredData.reduce((acc, curr)=> acc += curr.price,0)
-    let totalNoOFitems  = StoredData.reduce((acc, val)=> acc += 1 , 0)
     
-    return [priceAmount,totalNoOFitems,10]
-
   }
   else{
-    return [0,0,0]
+    console.log("empty present",0,0,10);
+    
+    return [0, 0,0]
   }
+  
+  
+
+}
+
+
+// function calculatePriceAmount(){
+//   const StoredData = JSON.parse(localStorage.getItem('MyCardData')) 
+//   if(StoredData){
+    
+//     let priceAmount  = StoredData.reduce((acc, curr)=> acc += curr.price,0)
+//     let totalNoOFitems  = StoredData.reduce((acc, val)=> acc += 1 , 0)
+    
+//     return [priceAmount,totalNoOFitems,10]
+
+//   }
+//   else{
+//     return [0,0,0]
+//   }
+// }
+
+
+
+function RemoveItemFromLocalStorage(id){
+    const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
+    if(dataFromLocalStorage){
+        let filteredData =  dataFromLocalStorage.filter((val)=> val.id !== id)
+        console.log('filterdata', filteredData);
+        localStorage.setItem('MyCardData', JSON.stringify(filteredData));
+        let removelelement = document.getElementById(`grandItem${id}`)
+        removelelement.remove()
+        UpdateAmountBox(0,0)         
+    }
 }
