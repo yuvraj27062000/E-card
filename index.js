@@ -30,7 +30,7 @@ function OpenmyCard() {
 
   maincontainer.classList.add('dimmcontainer');
   carddetail.classList.remove('close');
-  myItemCard()
+
 
 }
 function OpenmyCardTop() {
@@ -385,9 +385,15 @@ const LocalStorageData = (value, idvalue, refral) => {
   if (!StoredData) {
     let userList = []
     userList.push(value);
-    notifydata()
+
     refral.classList.add('greencard');
+     
     localStorage.setItem('MyCardData', JSON.stringify(userList));
+    UpdateAmountBox()
+    showMyCardItems(value)
+    notifydata()
+    
+    
 
   }
   else {
@@ -400,11 +406,15 @@ const LocalStorageData = (value, idvalue, refral) => {
     }
     else {
       StoredData.push(value);
-      notifydata()
-      console.log(refral);
+
+
       refral.classList.add('greencard');
       localStorage.setItem('MyCardData', JSON.stringify(StoredData))
-
+      UpdateAmountBox()
+      showMyCardItems(value)
+      notifydata()
+      
+      
     }
 
 
@@ -416,8 +426,7 @@ function MyCardData(val, refral) {
   products.filter((value) => {
     if (value.id == val) {
       LocalStorageData(value, val, refral);
-      // refral.classList.add('yuvi')
-      // console.log(val, refral);
+      console.log(val, refral);
     }
   })
 }
@@ -427,7 +436,6 @@ let notifydata = () => {
   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
   if (StoredData) {
     let data = StoredData.length;
-    console.log(data);
     document.getElementById('notify').textContent = data
 
   }
@@ -443,112 +451,145 @@ notifydata()
 
 // ================ Add to card box =============================
 
+const showMyCardItems = (value)=>{
+  let CardContainer = document.getElementById('shopingcardData')
+  let imagedata = document.createElement('div')
+  imagedata.className = 'imagedata1'
+  let image = document.createElement('img')
+  image.className = 'cardImage1'
+
+  let seconddiv = document.createElement('div')
+  seconddiv.className = 'seconddiv'
+
+
+  let titleprice = document.createElement('div')
+  titleprice.className = 'titleprice1'
+
+
+  let titledata = document.createElement('div')
+  titledata.className = 'titledata1'
+
+
+
+  let pricedata = document.createElement('div')
+  pricedata.className = 'pricedata1'
+
+  let buttondiv = document.createElement('div')
+  buttondiv.className = 'buttondiv'
+
+
+  let button1 = document.createElement('button')
+  button1.className = 'button1'
+  button1.onclick = increamentitem(this);
+
+  let button2 = document.createElement('button')
+  button2.className = 'button2'
+  button2.onclick = decreamentitem(this);
+
+  let grandItem = document.createElement('div')
+  grandItem.className = 'grandItem1'
+
+  image.src = value.images[1]
+  imagedata.appendChild(image)
+
+  button1.innerHTML = '+'
+  button2.innerHTML = '-'
+
+  titledata.innerHTML = `<h3>${value.title}</h3>`
+
+  pricedata.innerHTML = `<h3>${value.price}₹</h3>`
+
+
+
+  titleprice.append(titledata, pricedata)
+  buttondiv.append(button1, button2)
+  seconddiv.append(titleprice, buttondiv)
+
+  grandItem.append(imagedata, seconddiv)
+
+
+   
+
+  CardContainer.append(grandItem)
+   
+
+}
 
 function myItemCard() {
-  const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
-  let totalitems = 0
-  // let discountprice = 10
-  let totalAmount = 0
+  const StoredData = JSON.parse(localStorage.getItem('MyCardData')) 
   if (StoredData) {
-    console.log('card is filling', StoredData);
-
-    let CardContainer = document.getElementById('shopingcardData')
     StoredData.filter((value) => {
-
-      totalAmount += value.price;
-      totalitems += 1
-      let imagedata = document.createElement('div')
-      imagedata.className = 'imagedata1'
-      let image = document.createElement('img')
-      image.className = 'cardImage1'
-
-      let seconddiv = document.createElement('div')
-      seconddiv.className = 'seconddiv'
-
-
-      let titleprice = document.createElement('div')
-      titleprice.className = 'titleprice1'
-
-
-      let titledata = document.createElement('div')
-      titledata.className = 'titledata1'
-
-
-
-      let pricedata = document.createElement('div')
-      pricedata.className = 'pricedata1'
-
-
-      // titleprice.append(titledata, pricedata)
-
-      let buttondiv = document.createElement('div')
-      buttondiv.className = 'buttondiv'
-
-      let button1 = document.createElement('button')
-      button1.className = 'button1'
-
-      let button2 = document.createElement('button')
-      button2.className = 'button2'
-
-
-
-
-      let grandItem = document.createElement('div')
-      grandItem.className = 'grandItem1'
-
-      image.src = value.images[1]
-      imagedata.appendChild(image)
-
-      button1.innerHTML = '+'
-      button2.innerHTML = '-'
-
-      titledata.innerHTML = `<h3>${value.title}</h3>`
-
-      pricedata.innerHTML = `<h3>${value.price}₹</h3>`
-
-
-
-      titleprice.append(titledata, pricedata)
-      buttondiv.append(button1, button2)
-      seconddiv.append(titleprice, buttondiv)
-
-      grandItem.append(imagedata, seconddiv)
-
-
-      console.log(grandItem);
-
-      CardContainer.append(grandItem)
-      // console.log(CardContainer);
-
+      showMyCardItems(value)
     })
   }
-  else {
-    console.log('card is empty');
-    let CardContainer = document.getElementById('mycarddata')
-    let emptybox = document.createElement('div')
-    emptybox.className = 'pricedata1'
+ 
+}
 
-    emptybox.innerHTML = `<h3>Card is Empty </h3>`
-    CardContainer.appendChild(emptybox)
+myItemCard()
 
-  }
+function increamentitem(val) {
+  // console.log(val);
+  // console.log('data');
+
+}
+function decreamentitem(val) {
+  // console.log(val);
+  // console.log('data');
+
+}
+
+function myAmountBox(){
+  
+  // let discountprice =0 
+  const [totalprice,totalitem, discountpersent] = calculatePriceAmount();
   let CardContainer = document.getElementById('shopingcardData')
   let Amountdiv = document.createElement('div')
   Amountdiv.className = 'amountdiv'
 
   let items = document.createElement('div')
   items.className = 'items'
-  items.innerHTML =  `<h3>Items</h3><h3>${totalitems}₹</h3>`
+  items.innerHTML = `<h3>Items</h3><h3>${totalitem }₹</h3>`
 
   let discount = document.createElement('div')
   discount.className = 'discount'
-  let discountprice = (totalAmount - (totalAmount/10))
-  discount.innerHTML =  `<h3>Discount</h3><h3>${10}%</h3>`
+   discountprice = (totalprice - (totalprice / discountpersent))
+  discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
 
   let total = document.createElement('div')
   total.className = 'total'
-  total.innerHTML =  `<h3>Total</h3><h3>${discountprice}₹</h3>`
+  total.innerHTML = `<h3>Total</h3><h3>${discountprice}₹</h3>`
   Amountdiv.append(items, discount, total)
-  CardContainer.appendChild(Amountdiv);  
+  CardContainer.appendChild(Amountdiv);
+  console.log('amountbox');
+}
+myAmountBox()
 
+
+function UpdateAmountBox(){
+
+
+  let items = document.getElementsByClassName('items')[0]
+  let discount = document.getElementsByClassName('discount')[0]
+  let total = document.getElementsByClassName('total')[0]
+  let [totalAmount,totalNoOFitems, discountpersent] = calculatePriceAmount()
+  let discountprice = (totalAmount - (totalAmount / discountpersent))
+
+  items.innerHTML = `<h3>Items</h3><h3>${totalNoOFitems}₹</h3>`
+  discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
+  total.innerHTML = `<h3>Total</h3><h3>${discountprice}₹</h3>`
+}
+
+function calculatePriceAmount(){
+  const StoredData = JSON.parse(localStorage.getItem('MyCardData')) 
+  if(StoredData){
+    
+    let priceAmount  = StoredData.reduce((acc, curr)=> acc += curr.price,0)
+    let totalNoOFitems  = StoredData.reduce((acc, val)=> acc += 1 , 0)
+    
+    return [priceAmount,totalNoOFitems,10]
+
+  }
+  else{
+    return [0,0,0]
+  }
 }
