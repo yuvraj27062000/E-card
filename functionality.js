@@ -646,6 +646,7 @@ function IncreaseAmountValue() {
   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
   console.log(getItemsFromLocalStorage  );
   
+  
   if (getItemsFromLocalStorage) {
     getItemsFromLocalStorage.forEach((val) => {
       if(val.item === 0){
