@@ -680,6 +680,7 @@ function RemoveItemFromLocalStorage(id) {
     localStorage.setItem('MyCardData', JSON.stringify(filteredData));
     let removelelement = document.getElementById(`grandItem${id}`)
     document.getElementById(`MakeGreenCard${id}`).classList.remove('greencard')
+    document.getElementById(`MakeGreenCard${id}`).innerText = 'Add to Card'
     notifydata()
     removelelement.remove()
 
