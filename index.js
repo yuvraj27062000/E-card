@@ -648,17 +648,11 @@ function IncreaseAmountValue() {
   if (getItemsFromLocalStorage) {
     getItemsFromLocalStorage.forEach((val) => {
       document.getElementById(`itemQuantity${val.id}`).innerText = val.items
-      // document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-
-    })
-  }
-  if (StoredData) {
-    StoredData.forEach((val) => {
-      // document.getElementById(`itemQuantity${val.id}`).innerText = val.items
       document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
 
     })
   }
+  
 }
 
 
