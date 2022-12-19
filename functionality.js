@@ -393,6 +393,8 @@ let notifydata = () => {
   if (StoredData) {
     let data = StoredData.length;
     document.getElementById('notify').textContent = data
+    
+
   }
   else {
     document.getElementById('notify').textContent = 0
@@ -404,7 +406,6 @@ notifydata()
 // ================ Add to card box =============================
 
 const showMyCardItems = (value) => {
-
   let CardContainer = document.getElementById('shopingcardData')
   let imagedata = document.createElement('div')
   imagedata.className = 'imagedata1'
@@ -432,6 +433,8 @@ const showMyCardItems = (value) => {
   seconddiv.append(titleprice, buttondiv)
   grandItem.append(imagedata, seconddiv)
   CardContainer.append(grandItem)
+  document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+
 }
 
 function myItemCard() {
@@ -652,10 +655,13 @@ function IncreaseAmountValue() {
       if(val.item === 0){
         document.getElementById(`itemQuantity${val.id}`).innerText =0
       document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+      document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+
       }
       else{
         document.getElementById(`itemQuantity${val.id}`).innerText = val.items
         document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+        document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
       }
     })
   }
