@@ -599,7 +599,7 @@ function removeItem(id, price) {
 
 function myAmountBox() {
   const [totalprice, totalitems, discountpersent] = GetPriceItemDataFromLocalStorage()
-  
+   
 
   let CardContainer = document.getElementById('shopingcardData')
   let Amountdiv = document.createElement('div')
@@ -645,14 +645,20 @@ function IncreaseAmountValue() {
   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
   console.log(getItemsFromLocalStorage  );
+  
   if (getItemsFromLocalStorage) {
     getItemsFromLocalStorage.forEach((val) => {
-      document.getElementById(`itemQuantity${val.id}`).innerText = val.items
+      if(val.item === 0){
+        document.getElementById(`itemQuantity${val.id}`).innerText =0
       document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-
+      }
+      else{
+        document.getElementById(`itemQuantity${val.id}`).innerText = val.items
+        document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+      }
     })
   }
-  
+ 
 }
 
 
