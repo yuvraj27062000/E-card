@@ -61,7 +61,7 @@ display: flex;
   }
   
  
-  #about:hover{
+  .about:hover{
         border: 2px solid rgb(5, 20, 236);
         font-size: 12px;
   }

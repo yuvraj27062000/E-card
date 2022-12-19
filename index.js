@@ -1,24 +1,12 @@
 
 function myFunction() {
-  // leftNavbar
   let hide = document.getElementsByClassName('leftNavbar')[0].style.display = "none "
-
-
-
   let gridstyle = document.getElementsByClassName('section-container')[0]
-
   gridstyle.classList.add("change");
-
-
-
-
 }
 function myFunctionreverse() {
-  // leftNavbar
   let hide = document.getElementsByClassName('leftNavbar')[0].style.display = "block "
-  // let 
   let gridstyle = document.getElementsByClassName('section-container')[0]
-
   gridstyle.classList.remove("change");
 
 }
@@ -27,11 +15,8 @@ function OpenmyCard() {
 
   let maincontainer = document.getElementsByClassName("main-container")[0]
   let carddetail = document.getElementsByClassName("data")[0]
-
   maincontainer.classList.add('dimmcontainer');
   carddetail.classList.remove('close');
-
-
 }
 function OpenmyCardTop() {
   let cardId = document.getElementById('container')
@@ -332,7 +317,7 @@ const CardData = () => {
 
     let showcard = document.createElement('div')
     showcard.className = 'showcard'
-    showcard.innerHTML = `<div  id="mySidenav" class="sidenav" ><a onclick = 'MyCardData(${value.id},this)' class='addcard' id="about">Add to card </a></div>`
+    showcard.innerHTML = `<div  id="mySidenav" class="sidenav" ><a onclick = 'MyCardData(${value.id},this)' class='addcard about' id='MakeGreenCard${value.id}'>Add to card </a></div>`
     let imagedata = document.createElement('div')
     imagedata.className = 'imagedata'
     let image = document.createElement('img')
@@ -349,23 +334,14 @@ const CardData = () => {
     branddata.className = 'branddata'
     let grandItem = document.createElement('div')
     grandItem.className = 'grandItem'
-
     image.src = value.images[1]
     imagedata.appendChild(image)
-
     titledata.innerHTML = `<h3>${value.title}</h3>`
-    // CardContainer.append(titledata)
     pricedata.innerHTML = `<h3>${value.price}₹</h3>`
     ratingdata.innerHTML = `<h3> ⭐${value.rating}</h3>`
     priceratingdata.append(pricedata, ratingdata)
-    // priceratingdata.appendChild(ratingdata)
     branddata.innerHTML = `<h3>${value.brand}</h3>`
-
     grandItem.append(imagedata, titledata, priceratingdata, branddata, showcard)
-
-
-
-
     CardContainer.appendChild(grandItem)
   })
 }
@@ -377,17 +353,11 @@ const LocalStorageData = (value, idvalue, refral) => {
   if (!StoredData) {
     let userList = []
     userList.push(value);
-
-    refral.classList.add('greencard');
-
-    localStorage.setItem('MyCardData', JSON.stringify(userList));
-
+   refral.classList.add('greencard');
+   localStorage.setItem('MyCardData', JSON.stringify(userList));
     AddPriceAndItemDataInLocalStorage(value.price, idvalue)
     showMyCardItems(value)
     notifydata()
-
-
-
   }
   else {
     const StoredData1 = StoredData.find((val) => {
@@ -399,19 +369,12 @@ const LocalStorageData = (value, idvalue, refral) => {
     }
     else {
       StoredData.push(value);
-
-
       refral.classList.add('greencard');
       localStorage.setItem('MyCardData', JSON.stringify(StoredData))
-
       AddPriceAndItemDataInLocalStorage(value.price, idvalue)
       showMyCardItems(value)
       notifydata()
-
-
     }
-
-
   }
 }
 
@@ -420,7 +383,6 @@ function MyCardData(val, refral) {
   products.filter((value) => {
     if (value.id == val) {
       LocalStorageData(value, val, refral);
-
     }
   })
 }
@@ -431,14 +393,10 @@ let notifydata = () => {
   if (StoredData) {
     let data = StoredData.length;
     document.getElementById('notify').textContent = data
-
   }
   else {
     document.getElementById('notify').textContent = 0
   }
-
-
-
 }
 notifydata()
 
@@ -452,58 +410,28 @@ const showMyCardItems = (value) => {
   imagedata.className = 'imagedata1'
   let image = document.createElement('img')
   image.className = 'cardImage1'
-
   let seconddiv = document.createElement('div')
   seconddiv.className = 'seconddiv'
-
-
   let titleprice = document.createElement('div')
   titleprice.className = 'titleprice1'
-
-
   let titledata = document.createElement('div')
   titledata.className = 'titledata1'
-
-
-
   let pricedata = document.createElement('div')
   pricedata.className = 'pricedata1'
-
   let buttondiv = document.createElement('div')
   buttondiv.className = 'buttondiv'
-
   buttondiv.innerHTML = `<button onclick="increamentitem(${value.id},${value.price},this)" class='button1'>+</button><h4 id="itemQuantity${value.id}" >1</h4><button onclick="decreamentItem(${value.id},${value.price},this)" class='button1'>-</button> <button onclick="removeItem(${value.id},${value.price},this)"  class='removebutton'>❌</button>`
-
-
-
   let grandItem = document.createElement('div')
   grandItem.className = 'grandItem1'
   grandItem.id = `grandItem${value.id}`
-
   image.src = value.images[1]
   imagedata.appendChild(image)
-
-  // button1.innerHTML = '+'
-  // button2.innerHTML = '-'
-
   titledata.innerHTML = `<h3>${value.title}</h3>`
-
   pricedata.innerHTML = `<h3>${value.price}₹</h3>`
-
-
-
   titleprice.append(titledata, pricedata)
-  // buttondiv.append(button1, button2)
   seconddiv.append(titleprice, buttondiv)
-
   grandItem.append(imagedata, seconddiv)
-
-
-
-
   CardContainer.append(grandItem)
-
-
 }
 
 function myItemCard() {
@@ -519,16 +447,11 @@ function myItemCard() {
 myItemCard()
 
 function increamentitem(id, price) {
-
-
   let amount = document.getElementById(`itemQuantity${id}`).innerHTML
   document.getElementById(`itemQuantity${id}`).innerText = (Number(amount) + 1)
-
   AddPriceAndItemDataInLocalStorage(price, id)
 
 }
-
-
 
 
 function decreamentItem(id, price) {
@@ -537,7 +460,6 @@ function decreamentItem(id, price) {
 
 
   if (Number(amount) === 1) {
-    // let amount = document.getElementById(`itemQuantity${id}`).innerHTML
     DeletePriceAndItemDataInLocalStorage(price, id)
     RemoveItemFromLocalStorage(id)
 
@@ -597,15 +519,15 @@ function DeleteCardItemBox(id, price) {
   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
 
   let deletingData = getItemsFromLocalStorage.find((val) => val.id === id)
-  let totalitems = ((deletingData.items)*price)
+  let totalitems = ((deletingData.items) * price)
   let itempresent1 = getItemsFromLocalStorage.filter((val) => val.id !== id)
   localStorage.setItem('TotalItems', JSON.stringify(itempresent1))
-  
+
   const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount'))
   let pricedata = StoredPriceData[0].pricedata;
   let itemdata = StoredPriceData[0].items
   let newprice = (pricedata - totalitems)
-  let newitems = (itemdata- (deletingData.items))
+  let newitems = (itemdata - (deletingData.items))
 
   const userPriceAmount = [{ 'pricedata': newprice, 'items': newitems }]
   console.log("DeleteCardItemBox");
@@ -643,7 +565,7 @@ function GetItemAndIdFromLocalStorageIncrease(id) {
     let itemData = []
 
     itemData.push({ 'id': itemid, items: items })
-  
+
     localStorage.setItem('TotalItems', JSON.stringify(itemData))
 
   }
@@ -677,7 +599,7 @@ function removeItem(id, price) {
 
 function myAmountBox() {
   const [totalprice, totalitems, discountpersent] = GetPriceItemDataFromLocalStorage()
-
+  IncreaseAmountValue()
 
   let CardContainer = document.getElementById('shopingcardData')
   let Amountdiv = document.createElement('div')
@@ -689,8 +611,6 @@ function myAmountBox() {
 
   let discount = document.createElement('div')
   discount.className = 'discount'
-  // discountprice = (totalprice - (totalprice / discountpersent))
-  // discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
 
   let total = document.createElement('div')
   total.className = 'total'
@@ -713,19 +633,24 @@ function GetPriceItemDataFromLocalStorage() {
 }
 
 function UpdateAmountBox() {
-
   const [totalprice, totalitems, discountpersent] = GetPriceItemDataFromLocalStorage()
-
   let items = document.getElementsByClassName('items')[0]
-  // let discount = document.getElementsByClassName('discount')[0]
   let total = document.getElementsByClassName('total')[0]
-
-  // let discountprice = (totalprice - (totalprice / discountpersent))
-
   items.innerHTML = `<h3>Items</h3><h3>${totalitems}₹</h3>`
-  // discount.innerHTML = `<h3>Discount</h3><h3>${discountpersent}%</h3>`
   total.innerHTML = `<h3>Total</h3><h3>${totalprice}₹</h3>`
 }
+
+function IncreaseAmountValue() {
+  let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
+  if (getItemsFromLocalStorage) {
+    getItemsFromLocalStorage.forEach((val) => {
+      document.getElementById(`itemQuantity${val.id}`).innerText = val.items
+      document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+
+    })
+  }
+}
+
 
 
 
@@ -737,6 +662,8 @@ function RemoveItemFromLocalStorage(id) {
 
     localStorage.setItem('MyCardData', JSON.stringify(filteredData));
     let removelelement = document.getElementById(`grandItem${id}`)
+    document.getElementById(`MakeGreenCard${id}`).classList.remove('greencard')
+    notifydata()
     removelelement.remove()
 
   }
