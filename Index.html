@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-card</title>
-     
+
     <link rel="stylesheet" href="./CardData.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--  -->
@@ -35,10 +35,11 @@
                             <h1 class="webheader">E-Card</h1>
                         </div>
                         <div class="middilecardlink">
-                            <i onclick="OpenmyCard()" class=" w3-xlarge fa fa-shopping-cart"></i> 
-                        </div  >
+                            <i onclick="OpenmyCard()" class=" w3-xlarge fa fa-shopping-cart"></i>
+                        </div>
                         <div class="second">
-                            <i  onclick="OpenmyCard()" class="  w3-xlarge fa fa-shopping-cart"></i><span id="notify" class="cardNotification">0</span>
+                            <i onclick="OpenmyCard()" class="  w3-xlarge fa fa-shopping-cart"></i><span id="notify"
+                                class="cardNotification">0</span>
                             <input class="topinput" type="search" placeholder="Search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
@@ -56,9 +57,9 @@
                     <a class="ancr" href="#">Women</a>
                     <a class="ancr" href="#">Watches</a>
                     <a class="ancr" href="#">Mobiles</a>
-                    
+
                 </div>
-              </div>
+            </div>
             <h1 class="openSidebar  " stycontainerle="color:black;" onclick="myFunctionreverse()">☰</h1>
             <div id="container" class="topDropdown section-container ">
                 <section class="leftsection">
@@ -85,7 +86,7 @@
                 <!-- ================== Left  Section =================== -->
                 <section class="rightsection">
                     <div class="inputBox">
-                      
+
                         <input class="topinput" type="search" placeholder="Search">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
@@ -102,7 +103,7 @@
                             </div>
                             <!-- ========= card data inserted here ==================== -->
                             <div id="CardDataItem" class="CardItems">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -124,19 +125,24 @@
 
             </div>
         </div>
-        <!-- ================== SHOPING  CARD  =================== -->
+        <!-- ================== SHOPING  CART  =================== -->
         <div class=" data close">
             <div class="cardSlider   ">
+ 
                 <div class="innercardbox  ">
+                    
                     <h2 style="text-align:center; background-color: black; color:white;"> Card Details <span
                             onclick="closeCarddetail()" class="span">&#10060;</span> </h2>
-                    <hr style="margin-top: -0.11px; margin-bottom: 20px;">
+                            <button id="RemoveAllMyCart" class='RemoveAllCart'>removeall</button>          
                     <div id="cardData" class="cardItems">
-                        <div id="shopingcardData"  class="mycarddata">
-                            
+                        <div id="shopingcardData" class="mycarddata">
                         </div>
-
+                        <div>
+                           
+                        </div>
+                       
                     </div>
+                    
                 </div>
             </div>
 

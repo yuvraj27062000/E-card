@@ -162,6 +162,20 @@ h3{
     border-color: black;
   }
 
+  .RemoveAllCart {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    border: 1px solid white;
+
+  }
+  .RemoveAllCart:hover{
+    border: 1px solid red;
+  }
+
 .amountdiv{
     width: 100%;
     height: 100px;

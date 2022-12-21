@@ -329,18 +329,18 @@ const CardData = () => {
     let pricedata = document.createElement('div')
     pricedata.className = 'pricedata'
     let ratingdata = document.createElement('div')
-    ratingdata.className = 'ratingdata'
+    ratingdata.className = 'ratingdata' 
     let branddata = document.createElement('div')
     branddata.className = 'branddata'
     let grandItem = document.createElement('div')
     grandItem.className = 'grandItem'
     image.src = value.images[1]
     imagedata.appendChild(image)
-    titledata.innerHTML = `<h3>${value.title}</h3>`
-    pricedata.innerHTML = `<h3>${value.price}₹</h3>`
-    ratingdata.innerHTML = `<h3> ⭐${value.rating}</h3>`
+    titledata.innerHTML = `<h6>${value.title}</h6>`
+    pricedata.innerHTML = `<p>${value.price}₹</p>`
+    ratingdata.innerHTML = `<p> ⭐${value.rating}</p>`
     priceratingdata.append(pricedata, ratingdata)
-    branddata.innerHTML = `<h3>${value.brand}</h3>`
+    branddata.innerHTML = `<p>${value.brand}</p>`
     grandItem.append(imagedata, titledata, priceratingdata, branddata, showcard)
     CardContainer.appendChild(grandItem)
   })
@@ -353,8 +353,8 @@ const LocalStorageData = (value, idvalue, refral) => {
   if (!StoredData) {
     let userList = []
     userList.push(value);
-   refral.classList.add('greencard');
-   localStorage.setItem('MyCardData', JSON.stringify(userList));
+    refral.classList.add('greencard');
+    localStorage.setItem('MyCardData', JSON.stringify(userList));
     AddPriceAndItemDataInLocalStorage(value.price, idvalue)
     showMyCardItems(value)
     notifydata()
@@ -393,7 +393,7 @@ let notifydata = () => {
   if (StoredData) {
     let data = StoredData.length;
     document.getElementById('notify').textContent = data
-    
+
 
   }
   else {
@@ -425,15 +425,77 @@ const showMyCardItems = (value) => {
   let grandItem = document.createElement('div')
   grandItem.className = 'grandItem1'
   grandItem.id = `grandItem${value.id}`
-  image.src = value.images[1]
+  image.src = value.images[2]
   imagedata.appendChild(image)
-  titledata.innerHTML = `<h3>${value.title}</h3>`
-  pricedata.innerHTML = `<h3>${value.price}₹</h3>`
+  titledata.innerHTML = `<p>${value.title}</p>`
+  pricedata.innerHTML = `<p>${value.price}₹</p>{"pricedata": 0, "items": 0}`
   titleprice.append(titledata, pricedata)
   seconddiv.append(titleprice, buttondiv)
   grandItem.append(imagedata, seconddiv)
   CardContainer.append(grandItem)
   document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+
+}
+let removeAllmycart = document.getElementById('RemoveAllMyCart')
+
+removeAllmycart.onclick = () => {
+
+  const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
+  if (dataFromLocalStorage) {
+    dataFromLocalStorage.forEach((val) =>{
+      let removelelement = document.getElementById(`grandItem${val.id}`)
+      document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
+      DeletePriceAndItemDataInLocalStorage(val.price,val.id)
+      // UpdateAmountBox()
+      removelelement.remove()
+    })
+    let data = []
+    localStorage.setItem('MyCardData', JSON.stringify(data));
+    // localStorage.setItem('MyPriceAmount',JSON.stringify(data))
+    notifydata()
+    
+    
+    
+  }
+  
+
+  //   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
+  //   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
+  //   const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount'))
+
+
+  //   if(StoredData && getItemsFromLocalStorage){
+  //     StoredData.forEach((value)=>{
+  //       let removelelement = document.getElementById(`grandItem${value.id}`)
+  //       removelelement.remove()
+  //     })
+
+  //     let data = []
+  //     localStorage.setItem('MyCardData',JSON.stringify(data))
+  //     localStorage.setItem('TotalItems',JSON.stringify(data))
+  //     localStorage.setItem('MyPriceAmount',JSON.stringify(data))
+  //     UpdateAmountBox1()
+
+  //   }emoveAllmycart.onclick = ()=>{
+  //   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
+  //   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
+  //   const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount'))
+
+
+  //   if(StoredData && getItemsFromLocalStorage){
+  //     StoredData.forEach((value)=>{
+  //       let removelelement = document.getElementById(`grandItem${value.id}`)
+  //       removelelement.remove()
+  //     })
+
+  //     let data = []
+  //     localStorage.setItem('MyCardData',JSON.stringify(data))
+  //     localStorage.setItem('TotalItems',JSON.stringify(data))
+  //     localStorage.setItem('MyPriceAmount',JSON.stringify(data))
+  //     UpdateAmountBox1()
+
+  // }
 
 }
 
@@ -602,7 +664,7 @@ function removeItem(id, price) {
 
 function myAmountBox() {
   const [totalprice, totalitems, discountpersent] = GetPriceItemDataFromLocalStorage()
-   
+
 
   let CardContainer = document.getElementById('shopingcardData')
   let Amountdiv = document.createElement('div')
@@ -610,7 +672,7 @@ function myAmountBox() {
 
   let items = document.createElement('div')
   items.className = 'items'
-  items.innerHTML = `<h3>Items</h3><h3>${totalitems}₹</h3>`
+  items.innerHTML = `<h3>Items</h3><h3>${totalitems}</h3>`
 
   let discount = document.createElement('div')
   discount.className = 'discount'
@@ -643,34 +705,37 @@ function UpdateAmountBox() {
   items.innerHTML = `<h3>Items</h3><h3>${totalitems}₹</h3>`
   total.innerHTML = `<h3>Total</h3><h3>${totalprice}₹</h3>`
 }
+// function UpdateAmountBox1() {
+//   // const [totalprice, totalitems, discountpersent] = GetPriceItemDataFromLocalStorage()
+//   let items = document.getElementsByClassName('items')[0]
+//   let total = document.getElementsByClassName('total')[0]
+//   items.innerHTML = `<h3>Items</h3><h3>${0}₹</h3>`
+//   total.innerHTML = `<h3>Total</h3><h3>${0}₹</h3>`
+// }
 
 function IncreaseAmountValue() {
   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
-  console.log(getItemsFromLocalStorage  );
-  
-  
+  console.log(getItemsFromLocalStorage);
+
+
   if (getItemsFromLocalStorage) {
     getItemsFromLocalStorage.forEach((val) => {
-      if(val.item === 0){
-        document.getElementById(`itemQuantity${val.id}`).innerText =0
-      document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-      document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+      if (val.item === 0) {
+        document.getElementById(`itemQuantity${val.id}`).innerText = 0
+        document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+        document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
 
       }
-      else{
+      else {
         document.getElementById(`itemQuantity${val.id}`).innerText = val.items
         document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
         document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
       }
     })
   }
- 
+
 }
-
-
-
-
 
 function RemoveItemFromLocalStorage(id) {
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
