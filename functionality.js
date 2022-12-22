@@ -425,10 +425,10 @@ const showMyCardItems = (value) => {
   let grandItem = document.createElement('div')
   grandItem.className = 'grandItem1'
   grandItem.id = `grandItem${value.id}`
-  image.src = value.images[2]
+  image.src = value.images[1]
   imagedata.appendChild(image)
   titledata.innerHTML = `<p>${value.title}</p>`
-  pricedata.innerHTML = `<p>${value.price}₹</p>{"pricedata": 0, "items": 0}`
+  pricedata.innerHTML = `<p>${value.price}₹</p>`
   titleprice.append(titledata, pricedata)
   seconddiv.append(titleprice, buttondiv)
   grandItem.append(imagedata, seconddiv)
@@ -454,48 +454,9 @@ removeAllmycart.onclick = () => {
     localStorage.setItem('MyCardData', JSON.stringify(data));
     // localStorage.setItem('MyPriceAmount',JSON.stringify(data))
     notifydata()
-    
-    
-    
+   
   }
-  
-
-  //   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
-  //   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
-  //   const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount'))
-
-
-  //   if(StoredData && getItemsFromLocalStorage){
-  //     StoredData.forEach((value)=>{
-  //       let removelelement = document.getElementById(`grandItem${value.id}`)
-  //       removelelement.remove()
-  //     })
-
-  //     let data = []
-  //     localStorage.setItem('MyCardData',JSON.stringify(data))
-  //     localStorage.setItem('TotalItems',JSON.stringify(data))
-  //     localStorage.setItem('MyPriceAmount',JSON.stringify(data))
-  //     UpdateAmountBox1()
-
-  //   }emoveAllmycart.onclick = ()=>{
-  //   const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
-  //   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
-  //   const StoredPriceData = JSON.parse(localStorage.getItem('MyPriceAmount'))
-
-
-  //   if(StoredData && getItemsFromLocalStorage){
-  //     StoredData.forEach((value)=>{
-  //       let removelelement = document.getElementById(`grandItem${value.id}`)
-  //       removelelement.remove()
-  //     })
-
-  //     let data = []
-  //     localStorage.setItem('MyCardData',JSON.stringify(data))
-  //     localStorage.setItem('TotalItems',JSON.stringify(data))
-  //     localStorage.setItem('MyPriceAmount',JSON.stringify(data))
-  //     UpdateAmountBox1()
-
-  // }
+ 
 
 }
 
@@ -594,7 +555,7 @@ function DeleteCardItemBox(id, price) {
   let newprice = (pricedata - totalitems)
   let newitems = (itemdata - (deletingData.items))
 
-  const userPriceAmount = [{ 'pricedata': newprice, 'items': newitems }]
+  const userPriceAmount = []
   console.log("DeleteCardItemBox");
   localStorage.setItem('MyPriceAmount', JSON.stringify(userPriceAmount))
   UpdateAmountBox()
