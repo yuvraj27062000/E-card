@@ -558,7 +558,7 @@ function DeleteCardItemBox(id, price) {
   let newprice = (pricedata - totalitems)
   let newitems = (itemdata - (deletingData.items))
 
-  const userPriceAmount = []
+  const userPriceAmount = [ {pricedata: newprice, items: newitems}]
   console.log("DeleteCardItemBox");
   localStorage.setItem('MyPriceAmount', JSON.stringify(userPriceAmount))
   UpdateAmountBox()
