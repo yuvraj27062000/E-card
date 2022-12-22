@@ -447,12 +447,15 @@ removeAllmycart.onclick = () => {
       document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
       document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
       DeletePriceAndItemDataInLocalStorage(val.price,val.id)
-      // UpdateAmountBox()
+      UpdateAmountBox()
       removelelement.remove()
     })
     let data = []
+    let data1 = [{pricedata: 0, items: 0}]
     localStorage.setItem('MyCardData', JSON.stringify(data));
-    // localStorage.setItem('MyPriceAmount',JSON.stringify(data))
+    localStorage.setItem('MyPriceAmount',JSON.stringify(data1))
+    // DeletePriceAndItemDataInLocalStorage(0,0)
+    UpdateAmountBox()
     notifydata()
    
   }
@@ -596,6 +599,9 @@ function GetItemAndIdFromLocalStorageIncrease(id) {
 
   }
 }
+
+
+
 function GetItemAndIdFromLocalStorageDecrease(id) {
   let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
   // const StoredData = JSON.parse(localStorage.getItem('MyCardData'))
@@ -654,7 +660,9 @@ function GetPriceItemDataFromLocalStorage() {
     let pricedata = StoredPriceData[0].pricedata;
     let itemdata = StoredPriceData[0].items
     return [pricedata, itemdata, 10]
-  } else {
+  }
+  else {
+    console.log("zero data");
     return [0, 0, 0]
   }
 }
