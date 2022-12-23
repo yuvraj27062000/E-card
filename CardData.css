@@ -68,7 +68,7 @@ display: flex;
   
  
   .about:hover{
-        border: 2px solid rgb(5, 20, 236);
+        border: 2px solid rgb(0, 0, 0);
         font-size: 12px;
         color: white;
         font-weight: 600;
