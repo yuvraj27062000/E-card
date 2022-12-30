@@ -1,6 +1,9 @@
 /* =============navbar start ====================== */
 
-
+ .first h1{
+ 
+    text-shadow: 2px 2px #ff0000;
+}
 .close {
     display: none;
 }
