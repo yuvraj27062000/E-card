@@ -24,10 +24,10 @@
 </head>
 
 <body>
-    <main>
+    <main class="body">
         <!-- ================Navbar Start ===================== -->
 
-        <div class="main-container ">
+        <div class="main-container  ">
             <div class="main-nav  ">
                 <div class="headnav">
                     <nav class="inner-nav">
@@ -42,8 +42,18 @@
                         <div class="second">
                             <i onclick="OpenmyCard()" class="  w3-xlarge fa fa-shopping-cart"></i><span id="notify"
                                 class="cardNotification">0</span>
-                            <input class="topinput" type="search" placeholder="Search">
-                            <button class="btn btn-success" type="submit">Search</button>
+                            <div class="searchdiv displaysearch">
+                                <ol class="searchcontainer">
+                                    <li style="color: blue;" class="searchlist">Suggestions</li>
+                                    <li class="searchlist">Mobile</li>
+                                    <li class="searchlist">Perfume</li>
+                                    <li class="searchlist">Decoration</li>
+                                    <li class="searchlist">Cosmetic</li>
+                                    <li class="searchlist">Scent</li>
+                                </ol>
+                            </div>
+                            <input id="search" class="topinput" type="search" placeholder="Search">
+                            <button id="submitsearch" class=" btn btn-success" type="submit">Search</button>
                         </div>
                     </nav>
                 </div>
@@ -73,20 +83,35 @@
                                     class="websitelogoimage" src="./Logoimage1.png" alt="" srcset=""></h1>
 
                             <ul class="navLinks">
-                                <li class="navList" onclick="HomeLink(this)">
-                                    <div class="sidebarlinkdiv"> <p class="ancr makered" id="Home">Home</p> <i class=" icon w3-xlarge fa fa-home"></i></div>
+                                <li class="navList" onclick="HomeLink()">
+                                    <div class="sidebarlinkdiv">
+                                        <p class="ancr makered" id="Home">Home</p> <i
+                                            class=" icon w3-xlarge fa fa-home"></i>
+                                    </div>
                                 </li>
-                                <li class="navList" onclick="ManLink(this)">
-                                   <div class="sidebarlinkdiv"> <p class="ancr makered" id="Man">Man</p> <i class=" icon w3-xlarge fa fa-user"></i></div>
+                                <li class="navList" onclick="ManLink()">
+                                    <div class="sidebarlinkdiv">
+                                        <p class="ancr makered" id="Man">Man</p> <i
+                                            class=" icon w3-xlarge fa fa-user"></i>
+                                    </div>
                                 </li>
-                                <li class="navList" onclick="WomanLink(this)">
-                                     <div class="sidebarlinkdiv"><p class="ancr makered" id="Woman">Woman </p> <i class=" icon w3-xlarge fa fa-female"></i></div>
+                                <li class="navList" onclick="WomanLink()">
+                                    <div class="sidebarlinkdiv">
+                                        <p class="ancr makered" id="Woman">Woman </p> <i
+                                            class=" icon w3-xlarge fa fa-female"></i>
+                                    </div>
                                 </li>
-                                <li class="navList" onclick="WatcheLink(this)">
-                                     <div class="sidebarlinkdiv"><p class="ancr makered" id="Watches">Watches</p> <i class="icon fa w3-xlarge fa fa-clock-o"></i></div>
+                                <li class="navList" onclick="WatcheLink()">
+                                    <div class="sidebarlinkdiv">
+                                        <p class="ancr makered" id="Watches">Watches</p> <i
+                                            class="icon fa w3-xlarge fa fa-clock-o"></i>
+                                    </div>
                                 </li>
-                                <li class="navList" onclick="MobileLink(this)">
-                                     <div class="sidebarlinkdiv "><p class="ancr makered" id="Mobiles">Mobile</p><i class=" icon w3-xlarge fa fa-mobile"></i></div>
+                                <li class="navList" onclick="MobileLink()">
+                                    <div class="sidebarlinkdiv ">
+                                        <p class="ancr makered" id="Mobiles">Mobile</p><i
+                                            class=" icon w3-xlarge fa fa-mobile"></i>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

@@ -1,286 +1,371 @@
- 
-.Active {
-  color: red !important;
-  
-}
- 
+ body {
+   background-color: whitesmoke;
+ }
 
-.Active1{
-  color: red !important;
-}
- 
-#CardDataItem{
-display: flex;
-  justify-content: center;
-  align-items: center;
-   
-  flex-wrap: wrap;
-  flood-opacity: 0%;
-}
+ .Active {
+   color: red !important;
 
-#CardDataItemHome{
+ }
+
+
+ .Active1 {
+   color: red !important;
+ }
+
+ #CardDataItem {
    display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.grandItem{
-    display: flex;
-    width: 200px;
-    height: 280px;
-    margin: 20px;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
-
-}
-.grandItem:hover {
-    transform: scale(1.05) ease-in;
-    box-shadow: 1px 6px 6px rgb(77, 74, 74);
-    border: crimson;
-  }
-.cardImage{
-    width: 120px;
-    height: 120px;
-  
-}
-
-.priceratingdata{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.branddata h1{
-    text-align: center;
-}
-.titledata h3{
-    text-align: center;
-
-}   
- 
-#mySidenav a {
-    position: relative;
-    animation-name: example;
-    animation-duration: 4s;
-    top: 10px;
-    left: -58px;
-    bottom: 0px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 97px;
-    text-decoration: none;
-    font-size: 10px;
-    
-    font-weight: 600;
-    border-radius: 0 5px 5px 0;
-  }
-  
- 
-  .about:hover{
-        border: 2px solid rgb(0, 0, 0);
-        font-size: 12px;
-        color: white;
-        font-weight: 600;
-  }
-   
-
- 
-  
-  .addcard {
-    top: 20px;
-    background-color: #f44336;
- 
-    color: rgb(0, 0, 0);
-  }
- .greencard{
-    top: 20px;
-    background-color: #6cf436 !important;
-  }
-
-  /* =========== cardNotification start====================== */
-
-  .cardNotification{
-    position: relative;
-    display: inline-block;
-    width: 15px;
-    height: 20px;
-    z-index: 13300000px;
-    left: -20px;
-    border-radius: 10px;
-    top: -10px;
-    color: white;
-    background-color: #f44336;
-
-  }
-
-  /* =========== cardNotification end ====================== */
-
-/* ======== card data csss =========== */
-
-.mycarddata{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    /* border: 1px solid black; */
-}
-
-#shopingcardData{
-    display: flex;
-    flex-direction: column;
-
-}
-
-.grandItem1{
-  width: 100%;
-  height: 150px;
-  display: flex;
+   justify-content: center;
    align-items: center;
-   justify-content:space-between;
+
+   flex-wrap: wrap;
+   flood-opacity: 0%;
+ }
+
+ #CardDataItemHome {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-wrap: wrap;
+ }
+
+ .grandItem {
+   display: flex;
+   width: 200px;
+   height: 280px;
+   margin: 20px;
+   background-color: white;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   border: 1px solid rgb(0, 0, 0);
+   border-radius: 10px;
+
+ }
+
+ .grandItem:hover {
+   transform: scale(1.05) ease-in;
+   box-shadow: 1px 6px 6px rgb(77, 74, 74);
+   border: crimson;
+ }
+
+ .cardImage {
+   width: 120px;
+   height: 120px;
+
+ }
+
+ .priceratingdata {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+ }
+
+ .branddata h1 {
+   text-align: center;
+ }
+
+ .titledata h3 {
+   text-align: center;
+
+ }
+
+ #mySidenav a {
+   position: relative;
+   animation-name: example;
+   animation-duration: 4s;
+   top: 10px;
+   left: -58px;
+   bottom: 0px;
+   transition: 0.3s;
+   padding: 15px;
+   width: 97px;
+   text-decoration: none;
+   font-size: 10px;
+
+   font-weight: 600;
+   border-radius: 0 5px 5px 0;
+ }
+
+
+ .about:hover {
+   border: 2px solid rgb(0, 0, 0);
+   font-size: 12px;
+   color: white;
+   font-weight: 600;
+ }
+
+
+
+
+ .addcard {
+   top: 20px;
+   background-color: #f44336;
+
+   color: rgb(0, 0, 0);
+ }
+
+ .greencard {
+   top: 20px;
+   background-color: #6cf436 !important;
+ }
+
+ /* =========== cardNotification start====================== */
+
+ .cardNotification {
+   position: relative;
+   display: inline-block;
+   width: 15px;
+   height: 20px;
+   z-index: 13300000px;
+   left: -20px;
+   border-radius: 10px;
+   top: -10px;
+   color: white;
+   background-color: #f44336;
+
+ }
+
+ /* =========== cardNotification end ====================== */
+
+ /* ======== card data csss =========== */
+
+ .mycarddata {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   /* border: 1px solid black; */
+ }
+
+ #shopingcardData {
+   display: flex;
+   flex-direction: column;
+
+ }
+
+ .grandItem1 {
+   width: 100%;
+   height: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
    border: 1px solid black;
    margin-top: 20px;
-  
 
-}
-.imagedata1{
+
+ }
+
+ .imagedata1 {
    width: 150px;
    height: 150px;
    display: flex;
    align-items: center;
    justify-content: center;
-}
-.cardImage1{
-  width: 120px;
-  height: 120px;
-}
+ }
 
-.pricebutton1{
+ .cardImage1 {
+   width: 120px;
+   height: 120px;
+ }
+
+ .pricebutton1 {
    display: flex;
    align-items: center;
 
    justify-content: space-between;
-    
-}
 
-.buttondiv{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-.pricedata1{
-  flex-grow: 1;
-}
-
-.pricedata1 p{
-  text-align: center;
-}
-.titledata1 p{
-  text-align: center;
-}
-.removebutton{
-  width: 100px;
-  border: 1px solid red;
-  border-radius: 40px;
-}
-.negativebutton {
-  border: 1px solid rgb(235, 23, 23);
-  width: 26px;
-  border-radius: 50px;
-  height: 26px;
-  /* font-size: 1.5rem; */
-  font-weight: 500;
-}
- .buttondiv h4{
-  text-align: center;
  }
-.positivebutton{
-  border: 1px solid rgb(235, 23, 23);
-  width: 26px;
-  border-radius: 50px;
-  height: 26px;
-  font-weight: 500;
-}
-.cartremovebutton{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.imagedata1 :hover {
-  transform: scale(1.5) ease-in;
-  box-shadow: 1px 2px 5px rgb(20, 19, 19);
-}
-.seconddiv {
-  display: left;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 10px;
-  height: 130px;
-  /* background-color: rgb(140, 145, 145); */
-}
-.seconddiv p{
-  margin:0px;
-}
-.seconddiv button:hover{
-  background-color: rgb(51, 255, 0);
-  border: 1px solid black;
-  color: white;
+ .buttondiv {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: column;
+ }
 
-  
-}
+ .pricedata1 {
+   flex-grow: 1;
+ }
 
-.RemoveAllCart {
-  width: 100px;
-  height: 30px;
-  position: relative;
-  background-color: black;
-  color: white;
-  border-radius: 20px;
-  border: 1px solid white;
+ .pricedata1 p {
+   text-align: center;
+ }
 
-}
-.RemoveAllCart:hover{
-  border: 1px solid red;
-}
-.amountdiv{
-    width: 100%;
-    height: 100px;
-    border: 1px solid rgb(243, 0, 0);
-    border-radius: 20px;
-    bottom: 10px;
-    /* top: 20px; */
-    margin-bottom: 20px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+ .titledata1 p {
+   text-align: center;
+ }
+
+ .removebutton {
+   width: 100px;
+   border: 1px solid red;
+   border-radius: 40px;
+ }
+
+ .negativebutton {
+   border: 1px solid rgb(235, 23, 23);
+   width: 26px;
+   border-radius: 50px;
+   height: 26px;
+   /* font-size: 1.5rem; */
+   font-weight: 500;
+ }
+
+ .buttondiv h4 {
+   text-align: center;
+ }
+
+ .positivebutton {
+   border: 1px solid rgb(235, 23, 23);
+   width: 26px;
+   border-radius: 50px;
+   height: 26px;
+   font-weight: 500;
+ }
+
+ .cartremovebutton {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .imagedata1 :hover {
+   transform: scale(1.5) ease-in;
+   box-shadow: 1px 2px 5px rgb(20, 19, 19);
+ }
+
+ .seconddiv {
+   display: left;
+   flex-grow: 1;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   padding-right: 10px;
+   height: 130px;
+   /* background-color: rgb(140, 145, 145); */
+ }
+
+ .seconddiv p {
+   margin: 0px;
+ }
+
+ .seconddiv button:hover {
+   background-color: rgb(51, 255, 0);
+   border: 1px solid black;
+   color: white;
+
+
+ }
+
+ .RemoveAllCart {
+   width: 100px;
+   height: 30px;
+   position: relative;
+   background-color: black;
+   color: white;
+   border-radius: 20px;
+   border: 1px solid white;
+
+ }
+
+ .RemoveAllCart:hover {
+   border: 1px solid red;
+ }
+
+ .amountdiv {
+   width: 100%;
+   height: 100px;
+   border: 1px solid rgb(243, 0, 0);
+   border-radius: 20px;
+   bottom: 10px;
+   /* top: 20px; */
+   margin-bottom: 20px;
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-around;
+
+ }
+
+ .total,
+ .discount,
+ .items {
+   display: flex;
+   justify-content: space-around;
+   flex-direction: column;
+
+ }
+
+ .discount {
+   color: green;
+ }
+
+
+ /* ======== card data csss =========== */
+
+
+ /* =======================logo image  css */
+
+ .websitelogoimage {
+   width: 200px;
+   height: 70px;
+   font-size: large;
+   font-weight: 700;
+ }
+
+
+
+ /* suggetion======= */
+
+ /* #search:hover{
+
+} */
+
+ .searchdiv {
+   border: 1px solid black;
+   width: 126px;
+   top: 40px;
+   margin: 0px;
+   padding: 0px;
+   position: absolute;
+   z-index: 11111;
+   left: -58px;
+   color: white;
+   display: flex;
+   justify-content: center;
    
+
+   background-color: rgba(3, 2, 2, 0.589);
+
+
+ }
+
+ .searchcontainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   list-style: none;
+   flex-direction: column;
+   /* padding-left: -99px; */
+   width: 100%;
+   height: 90%;
+   position: relative;
+   z-index: 222222;
+ }
+ 
+ .searchlist{
+  width: 100%;
+
+ }
+/* 
+ .searchlist:hover {
+   background-color: aliceblue;
+   color: black;
+ } */
+ol{
+  padding: 0rem !important;
+  margin-bottom: 0rem !important;
 }
-.total, .discount, .items {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
 
-}
-.discount{
-    color: green;
-}
-
-
-/* ======== card data csss =========== */
-
-
-/* =======================logo image  css */
-
-.websitelogoimage{
-  width: 200px;
-  height: 70px;
-  font-size: large;
-  font-weight: 700;
+ .displaysearch{
+  display: none;
 }

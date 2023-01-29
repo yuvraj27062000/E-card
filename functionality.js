@@ -818,7 +818,7 @@ const CardData = (products, startID, endID) => {
     let titledata = document.createElement('div')
     titledata.className = 'titledata '
     let priceratingdata = document.createElement('div')
-    priceratingdata.className = 'priceratingdata' 
+    priceratingdata.className = 'priceratingdata'
     let pricedata = document.createElement('div')
     pricedata.className = 'pricedata'
     let ratingdata = document.createElement('div')
@@ -842,13 +842,13 @@ const CardData = (products, startID, endID) => {
       let filterdataformlocalstorage = getItemsFromLocalStorage.filter((val) => val.id === value.id);
       // console.log("filterdataformlocalstorage",filterdataformlocalstorage);
       if (filterdataformlocalstorage.length) {
-        getItemsFromLocalStorage.forEach((product)=>{
-          if(product.items !== 0){
+        getItemsFromLocalStorage.forEach((product) => {
+          if (product.items !== 0) {
             document.getElementById(`MakeGreenCard${value.id}`).classList.add('greencard')
             document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
           }
         })
-        
+
 
       }
 
@@ -874,7 +874,7 @@ function makecardgreen() {
 function makered() {
   let makeactive = document.querySelectorAll(".makered")
   makeactive.forEach((squareDiv) => {
-  // console.log("ancr is running");
+    // console.log("ancr is running");
     squareDiv.classList.remove("Active");
   })
   let makeactive1 = document.querySelectorAll(".fa")
@@ -904,12 +904,12 @@ function makered() {
           } catch {
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+          }
+
         }
       })
 
@@ -920,9 +920,9 @@ function makered() {
   CardData(data, 1, 12)
   // makecardgreen()
 })()
-function ManLink(val) {
+function ManLink() {
   makered()
-  
+
   let makeactive = document.querySelectorAll(".makered")[1]
   makeactive.classList.add('Active')
   console.log(makeactive);
@@ -939,7 +939,7 @@ function ManLink(val) {
     dataFromLocalStorage.forEach((val) => {
       data.filter((id) => {
         if (id.id === val.id) {
-          
+
           try {
             document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
@@ -947,13 +947,13 @@ function ManLink(val) {
             console.log("data not present");
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-          console.log("data not present");
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+            console.log("data not present");
+          }
+
         }
       })
 
@@ -964,7 +964,7 @@ function ManLink(val) {
   CardData(data, 1, 12)
   // makecardgreen()
 }
-function MobileLink(val) {
+function MobileLink() {
   makered()
   let makeactive = document.querySelectorAll(".makered")[4]
   makeactive.classList.add('Active')
@@ -987,13 +987,13 @@ function MobileLink(val) {
             console.log("data not present");
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-          console.log("data not present");
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+            console.log("data not present");
+          }
+
         }
       })
 
@@ -1004,7 +1004,7 @@ function MobileLink(val) {
   CardData(data, 13, 22)
   // makecardgreen()
 }
-function WomanLink(val) {
+function WomanLink() {
   makered()
   let makeactive = document.querySelectorAll(".makered")[2]
   makeactive.classList.add('Active')
@@ -1027,13 +1027,13 @@ function WomanLink(val) {
             console.log("data not present");
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-          console.log("data not present");
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+            console.log("data not present");
+          }
+
         }
       })
 
@@ -1043,7 +1043,7 @@ function WomanLink(val) {
   CardData(data, 23, 32)
   // makecardgreen()
 }
-function HomeLink(val) {
+function HomeLink() {
   makered()
   let makeactive = document.querySelectorAll(".makered")[0]
   makeactive.classList.add('Active')
@@ -1066,13 +1066,13 @@ function HomeLink(val) {
             console.log("data not present");
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-          console.log("data not present");
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+            console.log("data not present");
+          }
+
         }
       })
 
@@ -1083,7 +1083,7 @@ function HomeLink(val) {
   // makecardgreen()
 }
 
-function WatcheLink(val) {
+function WatcheLink() {
   makered()
   let makeactive = document.querySelectorAll(".makered")[3]
   makeactive.classList.add('Active')
@@ -1106,13 +1106,13 @@ function WatcheLink(val) {
             console.log("data not present");
           }
         } else {
-         try {
-          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
-          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
-         } catch {
-          console.log("data not present");
-         }
-          
+          try {
+            document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+            document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+          } catch {
+            console.log("data not present");
+          }
+
         }
       })
 
@@ -1485,4 +1485,80 @@ function RemoveItemFromLocalStorage(id) {
     removelelement.remove()
 
   }
+}
+
+
+// ===================search functionality ==============
+
+const search = document.getElementById("submitsearch")
+
+search.onclick = () => {
+  const searchvalue = document.getElementById("search").value
+  if (searchvalue.length) {
+    switch (searchvalue) {
+      case "Decoration":
+        HomeLink()
+        break;
+      case "Cosmetic":
+        WomanLink()
+        break;
+      case "cosmetic":
+        WomanLink()
+        break;
+      case "Mobile":
+        MobileLink()
+        break;
+      case "mobile":
+        MobileLink()
+        break;
+      case "iphone":
+        MobileLink()
+        break;
+      case "Perfume":
+        ManLink()
+        break;
+      case "perfume":
+        ManLink()
+        break;
+      case "Scent":
+        ManLink()
+        break;
+      case "scent":
+        ManLink()
+        break;
+      case "Watch":
+        WatcheLink()
+        break;
+      case "watch":
+        WatcheLink()
+        break;
+      default:
+        break;
+    }
+  }
+  else {
+    console.log("Empty input ");
+  }
+
+
+}
+
+let searchvalue = document.getElementById("search")
+console.log('searchvalue',searchvalue);
+
+searchvalue.onmouseover = ()=>{
+  let searchdisplay = document.getElementsByClassName('searchdiv')[0];
+  searchdisplay.classList.remove('displaysearch')
+
+}
+searchvalue.addEventListener('mouseout',()=>{
+  let searchdisplay = document.getElementsByClassName('searchdiv')[0];
+  searchdisplay.classList.add('displaysearch')
+  
+})
+
+searchvalue.onclick = ()=>{
+  let searchdisplay = document.getElementsByClassName('searchdiv')[0];
+  searchdisplay.classList.add('displaysearch')
+
 }

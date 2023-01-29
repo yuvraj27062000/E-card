@@ -7,6 +7,10 @@
 .close {
     display: none;
 }
+.body{
+    background-color: rgb(245 221 155 / 38%);
+  
+}
 
 :root {
     --bg-color: rgb(245, 130, 130);
@@ -25,7 +29,7 @@
 }
 
 .main-nav {
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow: 0 0 5px 1px;
     width: 100%;
    
@@ -157,7 +161,7 @@
     width: 280px;
     padding-top: 25px;
     padding-bottom: 23px;
-    background-color: #20c997;
+    background-color: white;
     color: rgb(15, 10, 10);
     transition: all 0.9s ease-in-out;
     transition-duration: 2s;
