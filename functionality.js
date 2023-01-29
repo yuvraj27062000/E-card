@@ -842,9 +842,13 @@ const CardData = (products, startID, endID) => {
       let filterdataformlocalstorage = getItemsFromLocalStorage.filter((val) => val.id === value.id);
       // console.log("filterdataformlocalstorage",filterdataformlocalstorage);
       if (filterdataformlocalstorage.length) {
-
-        document.getElementById(`MakeGreenCard${value.id}`).classList.add('greencard')
-        document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+        getItemsFromLocalStorage.forEach((product)=>{
+          if(product.items !== 0){
+            document.getElementById(`MakeGreenCard${value.id}`).classList.add('greencard')
+            document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+          }
+        })
+        
 
       }
 
@@ -935,6 +939,7 @@ function ManLink(val) {
     dataFromLocalStorage.forEach((val) => {
       data.filter((id) => {
         if (id.id === val.id) {
+          
           try {
             document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
