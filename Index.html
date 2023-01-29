@@ -33,7 +33,8 @@
                     <nav class="inner-nav">
 
                         <div class="first">
-                            <h1 class="webheader">E-Com</h1>
+                            <!-- <h1 class="webheader">E-Com</h1> -->
+                            <img class="websitelogoimage" src="./Logoimage1.png" alt="" srcset="">
                         </div>
                         <div class="middilecardlink">
                             <i onclick="OpenmyCard()" class=" w3-xlarge fa fa-shopping-cart"></i>
@@ -67,22 +68,30 @@
 
                     <div class="leftNavbar  ">
                         <div class="leftInnerNavbar">
-                            <h1 class="sidebar" style="color:black;" onclick="myFunction()">❌</h1>
+
+                            <h1 class="sidebar" style="color:black;" onclick="myFunction()">❌ <img
+                                    class="websitelogoimage" src="./Logoimage1.png" alt="" srcset=""></h1>
+
                             <ul class="navLinks">
-                                <li class="navList "> <a href="#" class="ancr" onclick="HomeLink(this)" id="Home">Home</a> <i
-                                        class=" icon w3-xlarge fa fa-home"></i> </li>
-                                <li class="navList "> <a class="ancr" onclick="ManLink(this)" id="Man">Man</a> <i
-                                        class=" icon w3-xlarge fa fa-user"></i> </li>
-                                <li class="navList "> <a class="ancr"  onclick="WomanLink(this)" id="Woman">Woman </a> <i
-                                        class=" icon w3-xlarge fa fa-female"></i> </li>
-                                <li class="navList "> <a class="ancr"  onclick="WatcheLink(this)" id="Watches">Watches</a> <i
-                                        class="icon fa w3-xlarge material-icons">&#xe334;</i></li>
-                                <li class="navList "> <a class="ancr"  onclick="MobileLink(this)" id="Mobiles">Mobile</a> <i
-                                        class=" icon w3-xlarge fa fa-mobile"></i></li>
+                                <li class="navList" onclick="HomeLink(this)">
+                                    <div class="sidebarlinkdiv"> <p class="ancr makered" id="Home">Home</p> <i class=" icon w3-xlarge fa fa-home"></i></div>
+                                </li>
+                                <li class="navList" onclick="ManLink(this)">
+                                   <div class="sidebarlinkdiv"> <p class="ancr makered" id="Man">Man</p> <i class=" icon w3-xlarge fa fa-user"></i></div>
+                                </li>
+                                <li class="navList" onclick="WomanLink(this)">
+                                     <div class="sidebarlinkdiv"><p class="ancr makered" id="Woman">Woman </p> <i class=" icon w3-xlarge fa fa-female"></i></div>
+                                </li>
+                                <li class="navList" onclick="WatcheLink(this)">
+                                     <div class="sidebarlinkdiv"><p class="ancr makered" id="Watches">Watches</p> <i class="icon fa w3-xlarge fa fa-clock-o"></i></div>
+                                </li>
+                                <li class="navList" onclick="MobileLink(this)">
+                                     <div class="sidebarlinkdiv "><p class="ancr makered" id="Mobiles">Mobile</p><i class=" icon w3-xlarge fa fa-mobile"></i></div>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                 
+
                 </section>
                 <!-- ================== Left  Section =================== -->
                 <section class="rightsection">
@@ -94,19 +103,19 @@
                     <div class="showcaseData">
                         <div class="imgContainer">
                             <div class="slide">
-                                <img class="FationImage fade " src="./images/image1.png" alt="Not found" srcset="">
+                                <img class="FationImage fade " src="./images/image1.png" alt="Not found">
                             </div>
                             <div class="slide">
-                                <img class="FationImage fade " src="./images/image2.png" alt="Not found" srcset="">
+                                <img class="FationImage fade " src="./images/image2.png" alt="Not found">
                             </div>
                             <div class="slide">
-                                <img class="FationImage fade " src="./images/image3.png" alt="Not found" srcset="">
+                                <img class="FationImage fade " src="./images/image3.png" alt="Not found">
                             </div>
                             <!-- ========= card data inserted here ==================== -->
                             <div id="CardDataItem" class="CardItems">
 
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -121,7 +130,7 @@
 
             <div class="footer">
 
-                <p>all rights reserved   &nbsp;&nbsp;&nbsp;
+                <p>all rights reserved &nbsp;&nbsp;&nbsp;
                     <a href="mailto:hege@example.com">© Yuvrajsingh</a>
                 </p>
 
@@ -130,21 +139,21 @@
         <!-- ================== SHOPING  CART  =================== -->
         <div class=" data close">
             <div class="cardSlider   ">
- 
+
                 <div class="innercardbox  ">
-                    
+
                     <h2 style="text-align:center; background-color: black; color:white;"> Card Details <span
                             onclick="closeCarddetail()" class="span">&#10060;</span> </h2>
-                            <button id="RemoveAllMyCart" class='RemoveAllCart'>removeall</button>          
+                    <button id="RemoveAllMyCart" class='RemoveAllCart'>removeall</button>
                     <div id="cardData" class="cardItems">
                         <div id="shopingcardData" class="mycarddata">
                         </div>
                         <div>
-                           
+
                         </div>
-                       
+
                     </div>
-                    
+
                 </div>
             </div>
 

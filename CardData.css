@@ -1,12 +1,13 @@
  
-.navList .Active{
-  color: red;
+.Active {
+  color: red !important;
   
 }
-.navList .Active1{
-  color: red;
-}
+ 
 
+.Active1{
+  color: red !important;
+}
  
 #CardDataItem{
 display: flex;
@@ -273,3 +274,13 @@ display: flex;
 
 
 /* ======== card data csss =========== */
+
+
+/* =======================logo image  css */
+
+.websitelogoimage{
+  width: 200px;
+  height: 70px;
+  font-size: large;
+  font-weight: 700;
+}

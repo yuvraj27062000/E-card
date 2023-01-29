@@ -802,9 +802,9 @@ const LocalStorageData = (value, idvalue, refral) => {
   }
 }
 
- 
-const CardData = (products, startID,endID) => {
-  let data = products.filter((data) => data.id >= startID &&  data.id <= endID)
+
+const CardData = (products, startID, endID) => {
+  let data = products.filter((data) => data.id >= startID && data.id <= endID)
   let CardContainer = document.getElementById('CardDataItem')
   data.map((value) => {
 
@@ -818,7 +818,7 @@ const CardData = (products, startID,endID) => {
     let titledata = document.createElement('div')
     titledata.className = 'titledata '
     let priceratingdata = document.createElement('div')
-    priceratingdata.className = 'priceratingdata'
+    priceratingdata.className = 'priceratingdata' 
     let pricedata = document.createElement('div')
     pricedata.className = 'pricedata'
     let ratingdata = document.createElement('div')
@@ -838,13 +838,13 @@ const CardData = (products, startID,endID) => {
     CardContainer.appendChild(grandItem)
 
     let getItemsFromLocalStorage = JSON.parse(localStorage.getItem('TotalItems'))
-    if(getItemsFromLocalStorage){
-      let filterdataformlocalstorage = getItemsFromLocalStorage.filter((val)=> val.id === value.id);
+    if (getItemsFromLocalStorage) {
+      let filterdataformlocalstorage = getItemsFromLocalStorage.filter((val) => val.id === value.id);
       // console.log("filterdataformlocalstorage",filterdataformlocalstorage);
       if (filterdataformlocalstorage.length) {
-      
-          document.getElementById(`MakeGreenCard${value.id}`).classList.add('greencard')
-          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+
+        document.getElementById(`MakeGreenCard${value.id}`).classList.add('greencard')
+        document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
 
       }
 
@@ -868,113 +868,141 @@ function makecardgreen() {
 
 }
 function makered() {
-  let makeactive = document.querySelectorAll(".ancr") 
+  let makeactive = document.querySelectorAll(".makered")
   makeactive.forEach((squareDiv) => {
-  squareDiv.classList.remove("Active");
-})
-let makeactive1 = document.querySelectorAll(".fa") 
+  // console.log("ancr is running");
+    squareDiv.classList.remove("Active");
+  })
+  let makeactive1 = document.querySelectorAll(".fa")
   makeactive1.forEach((squareDiv) => {
-  squareDiv.classList.remove("Active1");
-})
+    squareDiv.classList.remove("Active1");
+  })
 }
- 
+
 
 
 // ManLink()
-(function (){
-  
+(function () {
+
   const list = document.getElementById("CardDataItem");
   list.replaceChildren("");
   let data = products.filter((data) => data.id <= 12)
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-  
+
     dataFromLocalStorage.forEach((val) => {
-     data.filter((id)=>{
-          if(id.id === val.id){
-            try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
           }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+         }
+          
+        }
       })
-      
+
     })
   }
 
 
-  CardData(data,1,12)
+  CardData(data, 1, 12)
   // makecardgreen()
 })()
-function ManLink(val){
+function ManLink(val) {
   makered()
-  val.classList.add('Active')
-  let makeactive = document.querySelectorAll(".ancr")[1]
+  
+  let makeactive = document.querySelectorAll(".makered")[1]
+  makeactive.classList.add('Active')
+  console.log(makeactive);
   let makeactive1 = document.querySelectorAll(".fa")[3];
   makeactive1.classList.add('Active1')
+  console.log(makeactive1);
   const list = document.getElementById("CardDataItem");
   list.replaceChildren("");
   let data = products.filter((data) => data.id <= 12)
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-  
+
     dataFromLocalStorage.forEach((val) => {
-     data.filter((id)=>{
-          if(id.id === val.id){
-             try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
+            console.log("data not present");
           }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+          console.log("data not present");
+         }
+          
+        }
       })
-      
+
     })
   }
 
 
-  CardData(data ,1,12 )
+  CardData(data, 1, 12)
   // makecardgreen()
 }
 function MobileLink(val) {
   makered()
-  val.classList.add('Active')
+  let makeactive = document.querySelectorAll(".makered")[4]
+  makeactive.classList.add('Active')
   const list = document.getElementById("CardDataItem");
   let makeactive1 = document.querySelectorAll(".fa")[6];
   makeactive1.classList.add('Active1')
   list.replaceChildren("");
-  let data = products.filter((data) => data.id > 12 &&  data.id < 23)
+  let data = products.filter((data) => data.id > 12 && data.id < 23)
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-  
+
     dataFromLocalStorage.forEach((val) => {
-     data.filter((id)=>{
-          if(id.id === val.id){
-            try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
+            console.log("data not present");
           }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+          console.log("data not present");
+         }
+          
+        }
       })
-      
+
     })
   }
 
 
-  CardData(data,13,22)
+  CardData(data, 13, 22)
   // makecardgreen()
 }
 function WomanLink(val) {
   makered()
-  val.classList.add('Active')
+  let makeactive = document.querySelectorAll(".makered")[2]
+  makeactive.classList.add('Active')
   const list = document.getElementById("CardDataItem");
   let makeactive1 = document.querySelectorAll(".fa")[4]
   makeactive1.classList.add('Active1')
@@ -983,28 +1011,37 @@ function WomanLink(val) {
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-  
+
     dataFromLocalStorage.forEach((val) => {
-     data.filter((id)=>{
-          if(id.id === val.id){
-            try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
+            console.log("data not present");
           }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+          console.log("data not present");
+         }
+          
+        }
       })
-      
+
     })
   }
 
-  CardData(data,23,32)
+  CardData(data, 23, 32)
   // makecardgreen()
 }
 function HomeLink(val) {
   makered()
-  val.classList.add('Active')
+  let makeactive = document.querySelectorAll(".makered")[0]
+  makeactive.classList.add('Active')
   const list = document.getElementById("CardDataItem");
   let makeactive1 = document.querySelectorAll(".fa")[2]
   makeactive1.classList.add('Active1')
@@ -1013,58 +1050,75 @@ function HomeLink(val) {
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-  
+
     dataFromLocalStorage.forEach((val) => {
-     data.filter((id)=>{
-          if(id.id === val.id){
-            try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
+            console.log("data not present");
           }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+          console.log("data not present");
+         }
+          
+        }
       })
-      
+
     })
   }
 
-  CardData(data,33,37)
+  CardData(data, 33, 37)
   // makecardgreen()
 }
 
 function WatcheLink(val) {
   makered()
-  val.classList.add('Active')
+  let makeactive = document.querySelectorAll(".makered")[3]
+  makeactive.classList.add('Active')
   const list = document.getElementById("CardDataItem");
   let makeactive1 = document.querySelectorAll(".fa")[5]
   makeactive1.classList.add('Active1')
   list.replaceChildren("");
   let data = products.filter((data) => data.id >= 33)
-  
+
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
-if (dataFromLocalStorage) {
+  if (dataFromLocalStorage) {
 
-  dataFromLocalStorage.forEach((val) => {
-   data.filter((id)=>{
-        if(id.id === val.id){
-          try{
-              document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
+    dataFromLocalStorage.forEach((val) => {
+      data.filter((id) => {
+        if (id.id === val.id) {
+          try {
+            document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
             document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-             }catch{
-              console.log("data not present");
-             }
+          } catch {
+            console.log("data not present");
+          }
+        } else {
+         try {
+          document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
+          document.getElementById(`MakeGreenCard${val.id}`).classList.add('greencard')
+         } catch {
+          console.log("data not present");
+         }
+          
         }
-    })
-    
-  })
-}
+      })
 
-  CardData(data,33,37)
+    })
+  }
+
+  CardData(data, 33, 37)
   // makecardgreen()
 }
 
- 
+
 
 function MyCardData(val, refral) {
   products.filter((value) => {
@@ -1123,8 +1177,8 @@ const showMyCardItems = (value) => {
   imagedata.appendChild(image)
   titledata.innerHTML = `<p>${value.title}</p>`
   pricedata.innerHTML = `<p>${value.price}₹</p>`
-  pricebutton.append(pricedata,buttondiv)
-  seconddiv.append(titledata,pricebutton ,cartremovebutton)
+  pricebutton.append(pricedata, buttondiv)
+  seconddiv.append(titledata, pricebutton, cartremovebutton)
   grandItem.append(imagedata, seconddiv)
   CardContainer.append(grandItem)
   // document.getElementById(`MakeGreenCard${value.id}`).innerText = 'Card Added'
@@ -1137,16 +1191,16 @@ removeAllmycart.onclick = () => {
 
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('MyCardData'));
   if (dataFromLocalStorage) {
-   
+
     dataFromLocalStorage.forEach((val) => {
-      console.log(val.id,"checkin");
+      console.log(val.id, "checkin");
       let removelelement = document.getElementById(`grandItem${val.id}`)
-     
-      try{
+
+      try {
         document.getElementById(`MakeGreenCard${val.id}`).classList.remove('greencard')
         document.getElementById(`MakeGreenCard${val.id}`).innerText = 'Add to Card'
-      }catch{
-          console.log(" data not present");
+      } catch {
+        console.log(" data not present");
       }
 
       DeletePriceAndItemDataInLocalStorage(val.price, val.id)
@@ -1167,7 +1221,7 @@ removeAllmycart.onclick = () => {
 }
 
 
- 
+
 
 
 
