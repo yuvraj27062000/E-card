@@ -122,8 +122,16 @@
 /* <!-- ================== dropdown Navbar =================== --> */
 .fa{
     color: black;
+
 }
  
+/* .fa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    
+} */
 /* <!-- ================== Left Side Navbar =================== --> */
 
 .section-container {
@@ -380,7 +388,6 @@ a{
 .sidebarlinkdiv{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 50%;
 
 }
@@ -433,17 +440,30 @@ a{
     }
     .middilecardlink{
         display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+    }
+    .middilecardlink::after{
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border: 1px solid black;
     }
     .leftsection{
         display: none;
        
     }
-    
-    .main-container {
+    .main-container{
         display: flex;
-        position: absolute;
-        justify-content: space-between;
+        height: 100%;
+    }
     
+    .body{
+        position: absolute;
+        height: 100%;
+
+        background-color: rgb(245 221 155 / 38%);
     }
     #container{
         display: flex;
