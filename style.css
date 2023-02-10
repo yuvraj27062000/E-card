@@ -9,6 +9,7 @@
 }
 .body{
     background-color: rgb(245 221 155 / 38%);
+   overflow: hidden;
   
 }
 
@@ -104,7 +105,7 @@
 
 .section-container {
     width: 100%;
-    top: 55px;
+    top:37px;
 
     height: 92vmin;
 
